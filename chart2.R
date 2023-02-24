@@ -22,8 +22,7 @@ ggplot(data = chart2_df) +
   geom_line(aes(
     x = CheckoutYear, 
     y = num_of_checkouts,
-    color = Publisher,
-    )
+    color = Publisher)
   ) +
   labs(
     title = "Number of Checkouts Over Time By Publisher",
