@@ -19,7 +19,20 @@ The data was collected and published by The Seattle Public Library
 
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
 
-There are 12 parameters of the data: UsageClass, CheckoutType, MaterialType, CheckoutYear,	CheckoutMonth, Checkouts,	Title,	ISBN,	Creator,	Subjects,	Publisher,	PublicationYear
+There are 12 parameters of the data: 
+
+- UsageClass: Indicates if the item is "Physical" or "Digital"
+- CheckoutType: Denotes the vendor tool used to check out the item.
+- MaterialType: Describes the type of item checked out (book, song movie, music, magazine etc.)
+- CheckoutYear: Year when the checkouts occurred
+- CheckoutMonth: Month when the checkouts occurred
+- Checkouts: Number of checkouts within the CheckoutMonth. Note this only counts the initial checkout	
+- Title: Title and subtitle of the item
+- ISBN: All ISBNs associated with the item record for the checkout
+- Creator: Author of the item
+- Subjects: Related subject(s) of the item 
+- Publisher: Publishing entity of the title
+- PublicationYear: Year of which the title was published, printed, or copyrighted
 
 - How was the data collected or generated?
 
