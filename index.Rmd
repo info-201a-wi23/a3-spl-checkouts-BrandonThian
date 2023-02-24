@@ -5,82 +5,63 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The data set from Seattle Public Libraries that I have chosen are items that have been checked out between 2012 to 2022 and created by Geronimo Stilton. My main reason for choosing this data set is because Geronimo Stilton was personally one of my childhood favorite book series to read. 
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+Between 2012-2022, the year with the highest number of checkouts was 2015 and the lowest number of checkouts was in 2012. The average number of checkouts per yer is approximately 17,874. The most common publisher for Geronimo Stilton books from 2012-2022 was Scholastic, Inc. (US). From 2012-2014, the number of e-book checkouts was only 176. However, the number of e-book checkouts between 2020 and 2022 was 15,743.
 
 ### The Dataset
 
-- Who collected/published the data?  
+- Who collected/published the data? 
+
+The data was collected and published by The Seattle Public Library
+
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
+
+There are 12 parameters of the data: UsageClass, CheckoutType, MaterialType, CheckoutYear,	CheckoutMonth, Checkouts,	Title,	ISBN,	Creator,	Subjects,	Publisher,	PublicationYear
+
+- How was the data collected or generated?
+
+Physical checkout data was sourced from the Legrady artwork data archives and the Horizon ILS. Digital checkout data was provided through usage data from vendors Overdrive, hoopla, Freegal, and RBDigital.
+
 - Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
+
+The main reason why the data was collected is to provide free, accessible, open book data to the public.
+
+- What, if any, ethical questions do you need to consider when working with this data?
+
+This data does not contain patrons' personal data and thus we do not have to worry about compromising the private information of people who checked out items. However, it is likely that Seattle Public Libraries has patrons' personal information. Therefore, it begs the question: is Seattle Public Libraries showing everything?In other words, we have to follow-up by asking the following: Is Seattle Public Libraries showing all of the anonymous data regardless of patrons' information? Could they possibly be secretly hiding data from patrons based on the personal information of patrons? Does this reinforce BookScan's issue of shutting out patrons of color?
+
 - What are possible limitations or problems with this data?   (at least 200 words)
 
+One important limitation to note is that the data only goes back to April 2005. This means that we cannot make any conclusions about checkout data before 2005 to when the Seattle Public Library first opened in the late 1800s. 
+
+As mentioned in the previous question, the data does not include personal information about patrons. While this is certainly understandable due to privacy concerns, we must be mindful that we are likely unable to draw any conclusions about demographic trends (race, ethnicity, gender etc.) in relation to book checkouts. Furthermore, we must be wary of the possibility that Seattle Public Libraries could be intentionally hiding information of patrons of a specific demographic. This is due to them being a government body and we have learned of the potential discrimination when it comes to data collection, and that Seattle Public Libraries may not be exempt from said prejudice.
+
+Next, the data is on item checkouts, not sales. Therefore, we cannot draw exact conclusions on book sales trends but on something close. 
+
+As noted in the [FAQs](https://data.seattle.gov/api/views/tmmm-ytt6/files/d37b9edc-c56f-46e4-aaea-cb882230cf3a?download=true&filename=Checkouts%20by%20Title%20FAQs.pdf), the data set does not count renewals of checkouts, but only the initial checkout. This is a limitation because we cannot draw deeper and more granular conclusions about book popularity trends since we cannot gauge the full interest of patrons. For example, a book that was checked out once and returned the very next day would look the same as a book that was checked out and renewed several times.
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The first chart below depicts the number of Geronimo Stilton book and e-book checkouts between 2012 to 2022. The purpose of this chart was to visually analyze the change in popularity between physical books and e-books. Firstly, the graph shows that there were no e-book checkouts in 2012 and 2013. Secondly, we can see a significant decrease in the number of book checkouts after 2017, hitting a low in 2020. Meanwhile, the number of e-book checkouts has gradually increased and in 2020 and 2021, overtook the number of book checkouts.
 
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart1.R")}
 ```
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The second chart below shows the number of Geronimo Stilton books published by a specific publisher between 2012 to 2022. The intention of this chart was to see which publisher(s) were the most commonly used. Clearly, the graph shows that Scholastic, Inc. was the most used publisher by far. The next closest was Papercutz, followed by Macmillan Publishers.
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart2.R")}
 ```
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+The last chart of my choice visualizes the number of checkouts of the first Geronimo Stilton book, "The Lost Treasure of the Emerald Eye" between 2012 to 2022. This was one of my absolute favorites to read growing up. The chart shows that 2019 had the highest number of checkouts of this book, followed by 2015 and 2018. The lowest number of checkouts of this book occured in 2017.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("chart3.R")}
 ```
 
 
